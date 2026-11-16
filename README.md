@@ -51,10 +51,12 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -e ".[dev]"
+# Optional: install PaddleOCR (primary OCR engine; Tesseract is the fallback)
+# pip install -e ".[dev,paddleocr]"
 
-# Set environment variables
-cp .env.example .env
+# Set environment variables (template lives at the repo root)
+cp ../.env.example .env
 # Edit .env with your settings
 
 # Run migrations
@@ -162,12 +164,21 @@ medilens-ai/
 
 ## Testing
 
+Unit tests (no database required) live in `backend/tests/`:
+
 ```bash
 cd backend
 python -m pytest tests/ -v
 ```
 
-Current test coverage: 71 tests passing
+API tests in `tests/backend/` need PostgreSQL, Redis, and Qdrant running:
+
+```bash
+cd backend
+python -m pytest ../tests/backend -v
+```
+
+There is no frontend test suite yet.
 
 ## Environment Variables
 

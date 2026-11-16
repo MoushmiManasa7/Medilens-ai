@@ -95,7 +95,7 @@ export default function ChatPage() {
             : msg
         )
       );
-    } catch (error) {
+    } catch {
       setMessages(prev =>
         prev.map(msg =>
           msg.id === assistantMessage.id

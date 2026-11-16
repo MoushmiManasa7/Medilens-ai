@@ -26,6 +26,11 @@ dependencies = [
     "python-docx>=1.1.0",
     "pillow>=10.0.0",
     "pytesseract>=0.3.0",
+    "sentence-transformers>=3.0.0",
+    "llama-index>=0.12.0",
+    "llama-index-embeddings-huggingface>=0.4.0",
+    "llama-index-vector-stores-qdrant>=0.4.0",
+    "openai>=1.50.0",
 ]
 
 [project.optional-dependencies]
@@ -36,6 +41,9 @@ dev = [
     "httpx>=0.28.0",
     "ruff>=0.8.0",
     "mypy>=1.13.0",
+]
+paddleocr = [
+    "paddleocr>=2.8.0",
 ]
 
 [build-system]
